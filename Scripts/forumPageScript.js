@@ -11,7 +11,7 @@ $(document).ready(function(){
 
 			for(var i = 0; i < foros.length; i++)
 			{
-				agregarhtml += '<tr id=' + foros[i].id + ' class="foroxx">' + '<td>' + foros[i].id + '</td>' + '<td>' + foros[i].titulo + '</td>' + '<td>' + foros[i].nombre + '</td>' + '<td>' + foros[i].fecha + '</td>' + '</tr>';
+				agregarhtml += '<tr id=' + foros[i].id + ' class="foroxx">' + '<td>' + '<a href="' + foros[i].id + '">' + foros[i].id + '</td>' + '<td>' + foros[i].titulo + '</td>' + '<td>' + foros[i].nombre + '</td>' + '<td>' + foros[i].fecha + '</td>' + '</tr>';
 			}
 			$("#forito").append(agregarhtml);
 		},
@@ -21,13 +21,13 @@ $(document).ready(function(){
 
 	});
 
-	$('.foroxx').click(function() {
-        var href = $(this).attr("id");
-            console.log(href);
+	$('#forito').click(function() {
+        var href = $(this).find("a").attr("href");
+            window.location = href;
     });
 	
 	$('.modal').modal({
-      dismissible: false,
+      dismissible: true,
       opacity: .5, // Opacity of modal background
       inDuration: 300, // Transition in duration
       outDuration: 200, // Transition out duration

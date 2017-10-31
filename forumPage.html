@@ -43,7 +43,7 @@
     <h1 class="center yellow-text text-accent-3">Foro</h1>
 
     <div class="row center">
-    <a id="newQuestion-button" class="btn-large waves-effect waves-light yellow accent-3 black-text">Nueva Pregunta</a>
+    <a id="newQuestion-button" href="#newModal" class="btn-large waves-effect waves-light yellow accent-3 black-text">Nueva Pregunta</a>
         </div>
       <div class="table-responsive yellow-text text-accent-3">          
   <table id="forox" class="table highlight yellow-text text-accent-3">
@@ -62,7 +62,45 @@
   </table>
   </div>
 
-    
+    <!-- Modal Structure -->
+  	<div id="newModal" class="modal yellow accent-3">
+    		<div class="modal-content">
+	<div class="row">
+		<div class="input-field col s6">
+			<i class="material-icons prefix">account_circle</i>
+			<input id="usernamer" type="text">
+			<label class="" for="usernamer">Nombre de Usuario</label>
+		</div>
+		<div class="input-field col s6">
+			<i class="material-icons prefix">account_circle</i>
+			<input id="username" type="text">
+			<label class="" for="username">Nombre de Usuario</label>
+		</div>
+	</div>
+	<div class="row">
+        	<div class="input-field col s6">
+          		<i class="material-icons prefix">lock</i>
+          		<input id="passwordr" type="password"></input>
+          		<label for="passwordr">Contraseña</label>
+        	</div>
+		<div class="input-field col s6">
+          		<i class="material-icons prefix">lock</i>
+          		<input id="password" type="password"></input>
+          		<label for="password">Contraseña</label>
+        	</div>
+      	</div>
+	<div class="row">
+		<input class="filled-in" type="checkbox" id="rememberMe"/><label id="rememberTag" for="rememberMe" class="white-text col offset-s7">Remember Me</label>
+	</div>
+	<div class="row">
+		<a id="registerButton" class="waves-effect waves-light btn blue col s4 offset-s1"><i class="material-icons right">group_work</i>Registrar</a>
+		<a id="loginButton" class="waves-effect waves-light btn green col s4 offset-s2"><i class="material-icons right">group_work</i>Iniciar Sesión</a>
+	</div>
+    		</div>
+    		<div class="modal-footer yellow accent-3">
+      			<a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat white-text">Cerrar</a>
+    		</div>
+  	</div>
 
 
   <footer class="page-footer grey darken-4">
