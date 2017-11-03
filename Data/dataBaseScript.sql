@@ -4,7 +4,7 @@ CREATE TABLE Post (
     	
 	nombre VARCHAR(50),
 
-	fecha DATE,
+	fecha VARCHAR(30),
 
 	titulo VARCHAR(50),
 
@@ -20,7 +20,7 @@ CREATE TABLE Reply (
 	
 	nombre VARCHAR(50) NOT NULL,
 	
-	fecha DATE,
+	fecha VARCHAR(30),
 	
 	comentario VARCHAR(2000),
 

@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	//CARGAR FORO
-	$("#comentarButton").on("click", comentar);
+	$("#submitButton").on("click", postear);
 	$.ajax({
 		url : "data/cargarForoService.php",
 		type : "GET",
@@ -8,10 +8,11 @@ $(document).ready(function(){
 		success : function(foros){
 			
 			var agregarhtml;
+			var largo = ((foros.length)-1);
 
-			for(var i = 0; i < foros.length; i++)
+			for(var i = largo; i >= 0; i--)
 			{
-				agregarhtml += '<tr id=' + foros[i].id + ' class="foroxx">' + '<td>' + '<a href="' + foros[i].id + '">' + foros[i].id + '</td>' + '<td>' + foros[i].titulo + '</td>' + '<td>' + foros[i].nombre + '</td>' + '<td>' + foros[i].fecha + '</td>' + '</tr>';
+				agregarhtml += '<tr id="forox2">' + '<td>' + '<a  href="ForumPageID.html?id=' + foros[i].id + '">' + (i+1) + '</td>' + '<td>' + foros[i].titulo + '</td>' + '<td>' + foros[i].nombre + '</td>' + '<td>' + foros[i].fecha + '</td>' + '</tr>';
 			}
 			$("#forito").append(agregarhtml);
 		},
@@ -21,7 +22,7 @@ $(document).ready(function(){
 
 	});
 
-	$('#forito').click(function() {
+	$('.tr').click(function() {
         var href = $(this).find("a").attr("href");
             window.location = href;
     });
@@ -40,8 +41,64 @@ $(document).ready(function(){
 	});
 });
 
-function comentar()
+function postear()
 {
-	Materialize.updateTextFields();
-}
+	  var datetime = getActualFullDate();
+	  var datetime2 = new Date();
+/*
+        var datetime = currentdate.getDay() + "/"
+                + (currentdate.getMonth()+1)  + "/" 
+                + currentdate.getFullYear() + " @ "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds();
+*/
+        var username = "Bifi";
+	   var email = "lolsito@bifi.itesm.mx";
+        var postid = "Bifi" + datetime;
 
+        var jsonObjeto = {
+            "pid" : postid,
+		 "mal" : email,
+            "use" : username,
+            "tit" : $('#titulo').val(),
+            "cot" : $('#content').val(),
+            "fec" : datetime2
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "Data/createPost.php",
+            data : jsonObjeto,
+            dataType : "json",
+            contentType : "application/x-www-form-urlencoded",
+            success: function(jsonData) {
+                console.log("COMMENT ADDED TO DB SUCCESFULL");
+                //window.location.replace("File.html");
+
+            },
+            error: function(errorMsg){
+                console.log("Can't add comment");
+                //alert(errorMsg.statusText);
+            }
+        });
+
+	Materialize.updateTextFields();
+	location.reload();
+}
+function getActualFullDate() {
+    var d = new Date();
+    var day = addZero(d.getDate());
+    var month = addZero(d.getMonth()+1);
+    var year = addZero(d.getFullYear());
+    var h = addZero(d.getHours());
+    var m = addZero(d.getMinutes());
+    var s = addZero(d.getSeconds());
+    return day + "." + month + "." + year + "(" + h + ":" + m + ")";
+}
+function addZero(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    return i;
+}

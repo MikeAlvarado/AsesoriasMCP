@@ -10,7 +10,7 @@
   <body>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
           <script type="text/javascript" src="Scripts/materialize.min.js"></script>
-    <script type="text/javascript" src="Scripts/forumPageScript.js"></script>
+    <script type="text/javascript" src="Scripts/forumIDPageScript.js"></script>
     <div class="navbar-fixed">
     <nav>
          <div class="nav-wrapper yellow accent-2">
@@ -40,54 +40,22 @@
       <li><a class="lp logout" href="loginPage.html">Iniciar Sesión</a></li>
        </ul>
 
-    <h1 class="center yellow-text text-accent-3">Foro</h1>
-
-    <div class="row center">
-    <a id="newQuestion-button" href="#newModal" class="btn-large waves-effect waves-light yellow accent-3 black-text">Nueva Pregunta</a>
-        </div>
-      <div class="table-responsive yellow-text text-accent-3">          
-  <table id="forox" class="table highlight yellow-text text-accent-3">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Pregunta</th>
-        <th>Usuario</th>
-        <th>Fecha</th>
-        
-      </tr>
-    </thead>
-    <tbody id="forito">
-      
-    </tbody>
-  </table>
-  </div>
-
-    <!-- Modal Structure -->
-  	<div id="newModal" class="modal yellow accent-3">
-    		<div class="modal-content">
+    <h1 id="tit" class="center yellow-text text-accent-3">Pregunta</h1>
+ <div id="posted">
+</div>
+ <div id="comments">
+</div>
 	<div class="row">
-		<div class="input-field">
-			<i class="material-icons prefix">question_answer</i>
-			<input id="titulo" type="text">
-			<label class="" for="titulo">Titulo</label>
-		</div>
-	</div>
-	<div class="row">
-        <div class="input-field">
-          <i class="material-icons prefix">mode_edit</i>
-          <textarea id="content" class="materialize-textarea"></textarea>
-          <label for="content">Especificaciones</label>
+        <div class="input-field col s12 m8">
+          <i class="material-icons prefix yellow-text text-accent-3">mode_edit</i>
+          <textarea id="comentario" class="materialize-textarea"></textarea>
+          <label for="comentario">Comentario</label>
         </div>
      	</div>
-	<div class="row">
-		<a id="submitButton" class="waves-effect waves-light btn black col s4 offset-s8"><i class="material-icons right">group_work</i>Submit</a>
-	</div>
-    		</div>
-    		<div class="modal-footer yellow accent-3">
-      			<a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat black-text">Cerrar</a>
-    		</div>
-  	</div>
 
+	<div class="row">
+		<a id="submitButton" class="waves-effect waves-light btn yellow accent-3 col s4 offset-s2 black-text"><i class="material-icons right">group_work</i>Submit</a>
+	</div>
 
   <footer class="page-footer grey darken-4">
     <div class="container">

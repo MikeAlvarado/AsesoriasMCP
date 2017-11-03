@@ -18,14 +18,13 @@
 	else
 	{
 
-		$id = $_POST['pid'];
-		$ml = $_POST['mal'];
+		$id = $_POST['id'];
+		$ip = $_POST['idp'];
 		$us = $_POST['use'];
-		$ti = $_POST['tit'];
-		$co = $_POST['cot'];
+		$co = $_POST['com'];
 		$fe = $_POST['fec'];
 
-		$sql = "INSERT INTO Post (id, email, nombre, fecha, titulo, content) VALUES ('$id', '$ml', '$us', '$fe', '$ti', '$co')";
+		$sql = "INSERT INTO Reply (id, idpost, nombre, fecha, comentario) VALUES ('$id', '$ip', '$us', '$fe', '$co')";
 
 		if (mysqli_query($conn, $sql))
 		{
