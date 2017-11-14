@@ -59,6 +59,7 @@
         <div class="row center">
 	  <!-- <a href="loginPage.html" id="login-button" class="btn-large waves-effect waves-light yellow accent-3 black-text">Iniciar Sesión</a> -->
 	  <div id="loginButton" class="g-signin2" data-theme="dark" data-width="185" data-height="40" data-longtitle="true" data-onsuccess="onSignIn"></div>
+	  
         </div>
 		
 		<script>
@@ -66,6 +67,7 @@
             var profile = googleUser.getBasicProfile();
             var userEmail = profile.getEmail();
             var validateEmail = new RegExp('^[a-zA-Z0-9_.+-]+@(?:(?:[a-zA-Z0-9-]+\.)?[a-zA-Z]+\.)?(itesm)\.mx$');
+			var validateAdmin = "asesorias.mcp@gmail.com";
            // var chatVentana = document.getElementById('chatVentana');
 
             var loginButton = document.getElementById('loginButton');
@@ -80,7 +82,7 @@
 			
 			
 			
-            if (validateEmail.test(userEmail)) {
+            if (validateEmail.test(userEmail) || validateAdmin.localeCompare(userEmail)) {
 				//testText.innerHTML = profile.getName();
 				
 				logoutButton.style.display = 'table';
