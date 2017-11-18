@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Foro</title>
+    <title>Crear Clase</title>
     <link rel="shortcut icon" type="image/x-icon" href="Images/favicon.ico"/>
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
@@ -10,7 +10,8 @@
   <body>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
           <script type="text/javascript" src="Scripts/materialize.min.js"></script>
-    <script type="text/javascript" src="Scripts/forumPageScript.js"></script>
+    <script type="text/javascript" src="Scripts/createClassScript.js"></script>
+	<script type="text/javascript" src="Scripts/dateScript.js"></script>
     <div class="navbar-fixed">
     <nav>
          <div class="nav-wrapper yellow accent-2">
@@ -20,24 +21,24 @@
       <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
       <a href="#" data-activates="mobile-userMenu" data-constrainwidth="false" class="button-collapse right"><i class="material-icons">perm_identity</i></a>
              <ul class="right hide-on-med-and-down">
-
-              <li><a class = "black-text" href="crearClase.html">Crear</a></li>
+              <li><a class = "black-text" href="#">Crear</a></li>
               <li><a class = "black-text" href="agendarClase.html">Agendar</a></li>
-              <li><a class = "black-text" href="#">Foro</a></li>
+              <li><a class = "black-text" href="forumPage.html">Foro</a></li>
             	<li><a class = "black-text" href="conocenosPage.html">Conócenos</a></li>
         	    <li><a class = "black-text" href="contactoPage.html">Contacto</a></li>
 		<li><a class="black-text dropdown-button" href="#!" data-activates="userMenu"><i class="material-icons">perm_identity</i></a></li>
-      	     </ul>
 
+             </ul>
      </div>
      </nav>
      </div>
        <ul id="mobile-menu" class="side-nav">
-          <li><a href="crearClase.html">Crear</a></li>
+		<li><a href="#">Crear</a></li>
           <li><a href="agendarClase.html">Agendar</a></li>
-          <li><a href="#">Foro</a></li>
+          <li><a href="forumPage.html">Foro</a></li>
         	<li><a href="conocenosPage.html">Conócenos</a></li>
         	<li><a href="contactoPage.html">Contacto</a></li>
+
              </ul>
              <ul id="mobile-userMenu" class="side-nav">
              </ul>
@@ -46,56 +47,85 @@
 		<div id="loginButtonTop" class="g-signin2" class="col s6 offset-s6" data-theme="dark" data-width="185" data-height="50" data-onsuccess="onSignIn"></div>
 		<a href ="#" id="logoutButton" class="btn-large" style="display: none" class="col s6 offset-s6" data-theme="dark" data-width="185" data-height="50" onclick="signOut()"></a>
 		</li>
-
        </ul>
 
-    <h1 class="center yellow-text text-accent-3">Foro</h1>
+    <h1 class="center yellow-text text-accent-3">Crear Clase</h1>
+
+
 
     <div class="row center">
-    <a id="newQuestion-button" href="#newModal" class="btn-large waves-effect waves-light yellow accent-3 black-text">Nueva Pregunta</a>
-        </div>
-      <div class="table-responsive yellow-text text-accent-3">          
-  <table id="forox" class="table highlight yellow-text text-accent-3">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Pregunta</th>
-        <th>Usuario</th>
-        <th>Fecha</th>
-        
-      </tr>
-    </thead>
-    <tbody id="forito">
-      
-    </tbody>
-  </table>
-  </div>
+    
+    <iframe src="https://calendar.google.com/calendar/embed?src=asesorias.mcp%40gmail.com&ctz=America/Mexico_City" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
-    <!-- Modal Structure -->
-  	<div id="newModal" class="modal yellow accent-3">
-    		<div class="modal-content">
-	<div class="row">
-		<div class="input-field">
-			<i class="material-icons prefix">question_answer</i>
-			<input id="titulo" type="text">
-			<label class="" for="titulo">Titulo</label>
-		</div>
-	</div>
-	<div class="row">
-        <div class="input-field">
-          <i class="material-icons prefix">mode_edit</i>
-          <textarea id="content" class="materialize-textarea"></textarea>
-          <label for="content">Especificaciones</label>
         </div>
-     	</div>
-	<div class="row">
-		<a id="submitButton" class="waves-effect waves-light btn black col s4 offset-s8"><i class="material-icons right">group_work</i>Submit</a>
-	</div>
-    		</div>
-    		<div class="modal-footer yellow accent-3">
-      			<a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat black-text">Cerrar</a>
-    		</div>
-  	</div>
+<div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6 white-text">
+          <input  id="class_name" type="text" class="validate">
+          <label for="class_name">Clase</label>
+        </div>
+        <div class="input-field col s6 white-text">
+          <input id="place" type="text" class="validate">
+          <label for="place">Lugar</label>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="input-field col s6 white-text">
+          <input id="teacher" type="text" class="validate">
+          <label for="teacher">Profesor</label>
+        </div>
+        <div class="input-field col s3 white-text">
+          <input id="fecha" type="text" class="datepicker">
+          <label for="fecha">Fecha</label>
+        </div>
+
+        <div class="input-field col s3 white-text">
+          <input id="hora_inicio" type="text"  >
+          <label for="hora_inicio">Hora de Inicio (hh:mm)</label>
+		  
+		  
+        </div>
+
+        
+
+      </div>
+      <div class="row">
+        <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s12 white-text">
+          <textarea id="detalles" class="materialize-textarea"></textarea>
+          <label for="detalles">Detalles</label>
+        </div>
+      </div>
+	  
+    </form>
+  </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+		
+         <div id='content'>
+
+	<h2 class="yellow-text text-accent-3">Events</h1>
+
+      <ul id='events'></ul>
+    </div>
+    <a href='#' id='authorize-button' onclick='handleAuthClick();'>Crear Clase</a>
+    
+    <script src="Scripts/calendarScript.js"></script>
+    <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+          
+        </div>
+      </div>
+    </form>
+  </div>
+        
+
+
+    
 
 
   <footer class="page-footer grey darken-4">
@@ -105,7 +135,7 @@
           <h5 class="white-text">Website About</h5>
     <a href="https://www.facebook.com/AsesoriasMCP/" class="brand-logo">
           <img src="Images/fbIcon.svg" height="48" width="48"></img>
-      <p class="white-text">Síguenos en Facebook!</p>
+      <p class="white-text">SÃ­guenos en Facebook!</p>
         </a>
   </div>
       </div>

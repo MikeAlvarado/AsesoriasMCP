@@ -8,6 +8,14 @@ p
   line-height: 2rem;
 }
 
+#loginButton{
+  width: 100% ;
+}
+
+#loginButton > div{
+  margin: 0 auto ;
+}
+
 .parallax-container {
   min-height: 380px;
   line-height: 0;
