@@ -27,10 +27,10 @@
 			while ($row = $result->fetch_assoc())
 			{
     				array_push($foros, array(
-        				"id" => $row["id"],
-        				"nombre" => $row["nombre"],
-					"fecha" => $row["fecha"],
-					"titulo" => $row["titulo"]));
+        			"id" => utf8_decode($row["id"]),
+        			"nombre" => utf8_decode($row["nombre"]),
+				"fecha" => $row["fecha"],
+				"titulo" => utf8_decode($row["titulo"])));
 			}
 
 			echo json_encode($foros);

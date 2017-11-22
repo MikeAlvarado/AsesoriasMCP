@@ -18,11 +18,11 @@
 	else
 	{
 
-		$id = $_POST['id'];
-		$ip = $_POST['idp'];
-		$us = $_POST['use'];
-		$co = $_POST['com'];
-		$fe = $_POST['fec'];
+		$id = utf8_encode($_POST['id']);
+		$ip = utf8_encode($_POST['idp']);
+		$us = utf8_encode($_POST['use']);
+		$co = utf8_encode($_POST['com']);
+		$fe = utf8_encode($_POST['fec']);
 
 		$sql = "INSERT INTO Reply (id, idpost, nombre, fecha, comentario) VALUES ('$id', '$ip', '$us', '$fe', '$co')";
 

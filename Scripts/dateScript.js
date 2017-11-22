@@ -457,11 +457,7 @@ Date.prototype.add = function(interval, number) {
 			$(document).ready(function(){
     function dateTransform() {
 				var date = document.getElementById("fecha").value;
-				var time = document.getElementById("hora_inicio").value;
-				
-				alert(date + " " + time);
-				alert(Date.parseString(date + " " + time,'d MMM, yyyy H:m').format('yyyy-MM-ddTHH:mm:00.000-07:00'));  //2017-11-14T10:00:00.000-07:00
-				
+				var time = document.getElementById("hora_inicio").value;				
 			};
     $("#detalles").click(dateTransform);
 });

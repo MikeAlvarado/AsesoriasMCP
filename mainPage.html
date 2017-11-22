@@ -22,9 +22,8 @@
 	    <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
 	    <a href="#" data-activates="mobile-userMenu" data-constrainwidth="false" class="button-collapse right"><i class="material-icons">perm_identity</i></a>
              <ul class="right hide-on-med-and-down">
-              <li><a class = "black-text" href="crearClase.html">Crear</a></li>
-              <li><a class = "black-text" href="agendarClase.html">Agendar</a></li>
-              <li><a class = "black-text" href="forumPage.html">Foro</a></li>
+              <li><a id="cale" class = "black-text" href="agendarClase.html" style="display:none">Calendario</a></li>
+              <li><a id="foroB" class = "black-text" href="forumPage.html" style="display:none">Foro</a></li>
             	<li><a class = "black-text" href="conocenosPage.html">Conócenos</a></li>
         	    <li><a class = "black-text" href="contactoPage.html">Contacto</a></li>
 		<li><a class="black-text dropdown-button" href="#!" data-activates="userMenu"><i class="material-icons">perm_identity</i></a></li>
@@ -33,9 +32,6 @@
 	   </nav>
 	   </div>
 	     <ul id="mobile-menu" class="side-nav">
-          <li><a href="crearClase.html">Crear</a></li>
-          <li><a href="agendarClase.html">Agendar</a></li>
-          <li><a href="forumPage.html">Foro</a></li>
         	<li><a href="conocenosPage.html">Conócenos</a></li>
         	<li><a href="contactoPage.html">Contacto</a></li>
       	     </ul>
@@ -68,6 +64,7 @@
             var profile = googleUser.getBasicProfile();
             var userEmail = profile.getEmail();
             var validateEmail = new RegExp('^[a-zA-Z0-9_.+-]+@(?:(?:[a-zA-Z0-9-]+\.)?[a-zA-Z]+\.)?(itesm)\.mx$');
+		 var validateEmailUDEM = new RegExp('^[a-zA-Z0-9_.+-]+@(?:(?:[a-zA-Z0-9-]+\.)?[a-zA-Z]+\.)?(udem)\.edu$');
 			var validateAdmin = "asesorias.mcp@gmail.com";
            // var chatVentana = document.getElementById('chatVentana');
 
@@ -79,22 +76,31 @@
 			
 
             var logoutButton = document.getElementById('logoutButton');
+		 var cali = document.getElementById('cale');
+		 var foroB = document.getElementById('foroB');
 			
 			
 			
 			
-            if (validateEmail.test(userEmail) || validateAdmin.localeCompare(userEmail)) {
+            if (validateEmailUDEM.test(userEmail) || validateAdmin == userEmail) {
 				//testText.innerHTML = profile.getName();
+				
+				if(validateAdmin == userEmail) {
+					cali.href="crearClase.html";
+				}
 				
 				logoutButton.style.display = 'table';
 				loginButtonTop.style.display = 'none';
-				loginButton.style.display = 'none';				
+				loginButton.style.display = 'none';
+				cali.style.display = 'table';
+				foroB.style.display = 'table';
+								
 
             } else {
                 signOut();
 				
-                Materialize.toast('No puedes ingresar', 5000);
-            }
+                Materialize.toast('No puedes ingresar, usa tu cuenta UDEM', 5000);
+			  }
         }
             function signOut() {
                 <!-- var chatVentana = document.getElementById('chatVentana'); -->
@@ -104,6 +110,8 @@
                 <!-- var loginSpace = document.getElementById('loginSpace'); -->
 
                 <!-- var logoutbutton = document.getElementById('logoutbutton'); -->
+			var cali = document.getElementById('cale');
+		 	var foroB = document.getElementById('foroB');
 
                 <!-- chatVentana.style.display = 'none'; -->
 
@@ -115,6 +123,8 @@
 				
 				loginButtonTop.style.display = 'table';
 				loginButton.style.display = 'table';
+				cali.style.display = 'none';
+				foroB.style.display = 'none';
 
                 logoutButton.style.display = 'none';
                 var auth2 = gapi.auth2.getAuthInstance();

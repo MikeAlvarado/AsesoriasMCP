@@ -16,7 +16,7 @@
 	}
 	else
 	{
-		$idP = $_POST["id"];
+		$idP = utf8_encode($_POST["id"]);
 
 		$sql = "SELECT id, email, nombre, fecha, titulo, content FROM Post WHERE id = '$idP'";
 		
@@ -27,12 +27,12 @@
 
 		while($row = $result -> fetch_assoc()){
 			$posted[] = array(
-            "rid" => $row["id"],
-		 "rem" => $row["email"],
-            "rno" => $row["nombre"],
-            "rfe" => $row["fecha"],
-		  "rti" => $row["titulo"],
-            "rco" => $row["content"]);
+            "rid" => utf8_decode($row["id"]),
+		 "rem" => utf8_decode($row["email"]),
+            "rno" => utf8_decode($row["nombre"]),
+            "rfe" => utf8_decode($row["fecha"]),
+		  "rti" => utf8_decode($row["titulo"]),
+            "rco" => utf8_decode($row["content"]));
         }
 
 			echo json_encode($posted);

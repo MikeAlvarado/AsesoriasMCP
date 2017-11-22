@@ -16,7 +16,7 @@
 	}
 	else
 	{
-		$idP = $_POST["id"];
+		$idP = utf8_encode($_POST["id"]);
 
 		$sql = "SELECT id, nombre, fecha, comentario 
 				FROM Reply WHERE idpost = '$idP'";
@@ -29,10 +29,10 @@
 		while($row = $result -> fetch_assoc())
 		{
 			$comments[] = array(
-            "rid" => $row["id"],
-            "rno" => $row["nombre"],
-            "rfe" => $row["fecha"],
-            "rco" => $row["comentario"]);
+            "rid" => utf8_decode($row["id"]),
+            "rno" => utf8_decode($row["nombre"]),
+            "rfe" => utf8_decode($row["fecha"]),
+            "rco" => utf8_decode($row["comentario"]));
 		}
 
 			echo json_encode($comments);

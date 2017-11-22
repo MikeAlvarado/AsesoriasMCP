@@ -65,9 +65,12 @@ function postear()
                 + currentdate.getMinutes() + ":" 
                 + currentdate.getSeconds();
 */
-        var username = "Bifi";
-	   var email = "lolsito@bifi.itesm.mx";
-        var postid = "Bifi" + datetime;
+	  var botonsito = $("#submitButton");
+        var username = $("#submitButton").attr('usu');
+	   var email = $("#submitButton").attr('mail');
+	   //var username = "NoFunciona";
+	   //var email = "nofunciona@itesm.mx";
+        var postid = username + datetime;
 
         var jsonObjeto = {
             "pid" : postid,
@@ -94,7 +97,6 @@ function postear()
                 //alert(errorMsg.statusText);
             }
         });
-
 	Materialize.updateTextFields();
 	location.reload();
 }

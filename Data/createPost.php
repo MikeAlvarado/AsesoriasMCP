@@ -2,6 +2,9 @@
 	header('Accept: application/json');
 	header('Content-type: application/json');
 
+	ini_set("display_errors",1);
+	ini_set("display_startup_errors",1);
+
 	$servername = "localhost";
 	$username = "root";
 	$password = "root";
@@ -18,14 +21,16 @@
 	else
 	{
 
-		$id = $_POST['pid'];
-		$ml = $_POST['mal'];
-		$us = $_POST['use'];
-		$ti = $_POST['tit'];
-		$co = $_POST['cot'];
-		$fe = $_POST['fec'];
+		$id = utf8_encode($_POST['pid']);
+		$ml = utf8_encode($_POST['mal']);
+		$us = utf8_encode($_POST['use']);
+		$ti = utf8_encode($_POST['tit']);
+		$co = utf8_encode($_POST['cot']);
+		$fe = utf8_encode($_POST['fec']);
 
 		$sql = "INSERT INTO Post (id, email, nombre, fecha, titulo, content) VALUES ('$id', '$ml', '$us', '$fe', '$ti', '$co')";
+
+		print $sql;
 
 		if (mysqli_query($conn, $sql))
 		{

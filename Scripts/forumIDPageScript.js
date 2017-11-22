@@ -15,7 +15,7 @@ $(document).ready(function(){
 	//CARGAR COMMENTS
 	$("#submitButton").on("click", comentar);
 	var jsonID = {
-		"id" : getUrlParameter("id")
+		"id" : unescape(getUrlParameter("id"))
 	};
 	$.ajax({
 		url : "data/cargarForoSpecificService.php",
@@ -81,8 +81,8 @@ function comentar()
 {
 	  var datetime = getActualFullDate();
 	  var datetime2 = new Date();
-	  var username = "Bifi";
-	  var pid = getUrlParameter("id");
+	  var username = $("#submitButton").attr('usu');
+	  var pid = unescape(getUrlParameter("id"));
 	  var cid = pid + datetime;
 
 
